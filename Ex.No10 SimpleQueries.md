@@ -36,7 +36,7 @@ food(apple).
 food(chicken).
 food(peanuts).
 ```
-# Output:
+## Output:
 ![Screenshot 2025-03-19 111710](https://github.com/user-attachments/assets/fdf25c83-cd71-482b-93c6-3f750c65eba1)
 
 
