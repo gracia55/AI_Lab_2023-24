@@ -1,106 +1,75 @@
-# Ex.No: 12  Planning –  Monkey Banana Problem
+# Ex.No: 11  Planning –  Block World Problem 
 ### DATE:                                                                           
 ### REGISTER NUMBER : 212222040047
 ### AIM: 
-To find the sequence of plan for Monkey Banana problem using PDDL Editor.
+To find the sequence of plan for Block word problem using PDDL  
 ###  Algorithm:
-Step 1:  Start the program <br> 
-Step 2 : Create a domain for Monkey Banana Problem. <br> 
-Step 3:  Create a domain by specifying predicates. <br> 
-Step 4: Specify the actions GOTO, CLIMB, PUSH-BOX, GET-KNIFE, GRAB-BANANAS in Monkey Banana problem.<br>  
-Step 5:   Define a problem for Monkey Banana problem.<br> 
-Step 6:  Obtain the plan for given problem.<br> 
-Step 7: Stop the program.<br> 
-
+Step 1 :  Start the program <br>
+Step 2 : Create a domain for Block world Problem <br>
+Step 3 :  Create a domain by specifying predicates clear, on table, on, arm-empty, holding. <br>
+Step 4 : Specify the actions pickup, putdown, stack and un-stack in Block world problem <br>
+Step 5 :  In pickup action, Robot arm pick the block on table. Precondition is Block is on table and no other block on specified block and arm-hand empty.<br>
+Step 6:  In putdown action, Robot arm place the block on table. Precondition is robot-arm holding the block.<br>
+Step 7 : In un-stack action, Robot arm pick the block on some block. Precondition is Block is on another block and no other block on specified block and arm-hand empty.<br>
+Step 8 : In stack action, Robot arm place the block on under block. Precondition is Block holded by robot arm and no other block on under block.<br>
+Step 9 : Define a problem for block world problem.<br> 
+Step 10 : Obtain the plan for given problem.<br> 
+     
 ### Program:
 ```
-(define (domain monkey)	       
-  (:requirements :strips)
-   (:constants monkey box knife bananas glass waterfountain)
-   (:predicates (location ?x)
-	       (on-floor)
-	       (at ?m ?x)
-	       (hasknife)
-	       (onbox ?x)
-	       (hasbananas)
-	       (hasglass)
-	       (haswater))
-   ;; movement and climbing
-  (:action GO-TO
-	     :parameters (?x ?y)
-	     :precondition (and (location ?x) (location ?y) (on-floor) (at monkey ?y))
-	     :effect (and (at monkey ?x) (not (at monkey ?y))))
-   (:action CLIMB
-	     :parameters (?x)
-	     :precondition (and (location ?x) (at box ?x) (at monkey ?x))
-	     :effect (and (onbox ?x) (not (on-floor))))
-   (:action PUSH-BOX
-	     :parameters (?x ?y)
-	     :precondition (and (location ?x) (location ?y) (at box ?y) (at monkey ?y) 
-				 (on-floor))
-	     :effect (and (at monkey ?x) (not (at monkey ?y))
-			   (at box ?x)    (not (at box ?y))))
-  ;; getting bananas
-  (:action GET-KNIFE
-	     :parameters (?y)
-         :precondition (and (location ?y) (at knife ?y) (at monkey ?y))
-	     :effect (and (hasknife) (not (at knife ?y))))
-  (:action GRAB-BANANAS
-	     :parameters (?y)
-	     :precondition (and (location ?y) (hasknife) 
-                                 (at bananas ?y) (onbox ?y))
-	     :effect (hasbananas))
-  ;; getting water
-  (:action PICKGLASS
-	     :parameters (?y)
-	     :precondition (and (location ?y) (at glass ?y) (at monkey ?y))
-	     :effect (and (hasglass) (not (at glass ?y))))
-  (:action GETWATER
-	     :parameters (?y)
-	     :precondition (and (location ?y) (hasglass)
-				 (at waterfountain ?y)
-				 (at monkey ?y)
-				 (onbox ?y))
-	     :effect (haswater)))
+(define (domain blocksworld)
+(:requirements :strips :equality)
+(:predicates (clear ?x)
+             (on-table ?x)
+             (arm-empty)
+             (holding ?x)
+             (on ?x ?y))
+(:action pickup
+  :parameters (?ob)
+  :precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+  :effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob)) 
+               (not (arm-empty))))
+(:action putdown
+  :parameters  (?ob)
+  :precondition (and (holding ?ob))
+  :effect (and (clear ?ob) (arm-empty) (on-table ?ob) 
+               (not (holding ?ob))))
+(:action stack
+  :parameters  (?ob ?underob)
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+(:action unstack
+  :parameters (?ob ?underob)
+  :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+  :effect (and (holding ?ob) (clear ?underob)
+               (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))))
 ```
+
+
+
+
+
+
+
+
 
 ### Input :
 ```
 (define (problem pb1)
-    	(:domain monkey)
-  	(:objects p1 p2 p3 p4 bananas monkey box knife)
-  	(:init (location p1)
-		(location p2)
-		(location p3)
-		(location p4)
-	 	(at monkey p1)
-		(on-floor)
-		(at box p2)
-		(at bananas p3)
-	 	(at knife p4)
-	)
-  	(:goal (and (hasbananas)))
-)
+   (:domain blocksworld)
+   (:objects a b)
+   (:init (on-table a) (on-table b)  (clear a)  (clear b) (arm-empty))
+   (:goal (and (on a b))))
 ```
 
 ### Output/Plan:
-![326326538-f7a3bbb5-0d9b-43c1-bf38-9e1171e142af](https://github.com/user-attachments/assets/8334b496-87a4-475b-9915-ceeb838c9037)
+![326324956-d4f22e91-acf9-4a1d-bd18-6a42f29cfeb0](https://github.com/user-attachments/assets/6ad483bf-bdd5-43d1-883c-31cb632592d1)
 
-![326326586-40b25c93-136c-410d-9b89-95ee5000b995](https://github.com/user-attachments/assets/822781e1-592e-4b45-a443-8413a8051126)
-
-
-![326326615-5867317a-726e-4940-b219-23c9edcaebf0](https://github.com/user-attachments/assets/8c891109-0113-42ed-b34f-d4b7f2e70f8f)
-
-
-![326326680-cb8a826d-b025-4dc0-8348-12ea863ef04d](https://github.com/user-attachments/assets/49368ba6-e0c0-4a4a-8200-1b1b5a2f6738)
-
-
-![326326715-9842351f-7a74-4c32-8523-0db328bcf00c](https://github.com/user-attachments/assets/1f28184e-90ee-4d69-ac57-9e85092ddb7a)
-
-![326326757-cd4fe5d4-bbfc-4f4a-be73-2517abc10869](https://github.com/user-attachments/assets/40799068-fa8d-46f9-8313-821db18d6f83)
+![326325029-4e1e15ca-0d75-4e77-8ba1-2be2364352cd](https://github.com/user-attachments/assets/d3ab8931-99f8-4479-80a7-fbdf6800020b)
 
 
 
 
 ### Result:
-Thus the plan was found for the initial and goal state of given problem.
+Thus the plan was found for the initial and goal state of block world problem.
