@@ -1,5 +1,5 @@
 # Ex.No: 12  Planning –  Monkey Banana Problem
-### DATE: 15.04.2025                                                                           
+### DATE:                                                                           
 ### REGISTER NUMBER : 212222040047
 ### AIM: 
 To find the sequence of plan for Monkey Banana problem using PDDL Editor.
@@ -84,21 +84,20 @@ Step 7: Stop the program.<br>
 ```
 
 ### Output/Plan:
-![326326538-f7a3bbb5-0d9b-43c1-bf38-9e1171e142af](https://github.com/user-attachments/assets/1f702def-bfda-4975-803d-a9ed80d6a565)
+![326326538-f7a3bbb5-0d9b-43c1-bf38-9e1171e142af](https://github.com/user-attachments/assets/8334b496-87a4-475b-9915-ceeb838c9037)
+
+![326326586-40b25c93-136c-410d-9b89-95ee5000b995](https://github.com/user-attachments/assets/822781e1-592e-4b45-a443-8413a8051126)
 
 
-![326326586-40b25c93-136c-410d-9b89-95ee5000b995](https://github.com/user-attachments/assets/d461030b-b854-4fd6-b669-adb6435b7be2)
-
-![326326615-5867317a-726e-4940-b219-23c9edcaebf0](https://github.com/user-attachments/assets/3f8a6ee8-ac12-45d2-8e4e-d2784cb37ed7)
+![326326615-5867317a-726e-4940-b219-23c9edcaebf0](https://github.com/user-attachments/assets/8c891109-0113-42ed-b34f-d4b7f2e70f8f)
 
 
-![326326680-cb8a826d-b025-4dc0-8348-12ea863ef04d](https://github.com/user-attachments/assets/a879c7f8-5b16-492a-92b1-c3ab70f529ee)
-
-![326326715-9842351f-7a74-4c32-8523-0db328bcf00c](https://github.com/user-attachments/assets/c052553b-6012-4f9b-b7b1-5626634ce9bc)
+![326326680-cb8a826d-b025-4dc0-8348-12ea863ef04d](https://github.com/user-attachments/assets/49368ba6-e0c0-4a4a-8200-1b1b5a2f6738)
 
 
-![326326757-cd4fe5d4-bbfc-4f4a-be73-2517abc10869](https://github.com/user-attachments/assets/da5d7092-f7d9-4d4d-a669-f9c795ee384c)
+![326326715-9842351f-7a74-4c32-8523-0db328bcf00c](https://github.com/user-attachments/assets/1f28184e-90ee-4d69-ac57-9e85092ddb7a)
 
+![326326757-cd4fe5d4-bbfc-4f4a-be73-2517abc10869](https://github.com/user-attachments/assets/40799068-fa8d-46f9-8313-821db18d6f83)
 
 
 
