@@ -1,6 +1,6 @@
 # Ex.No: 8  Logic Programming –  Medical Diagnosis Expert System
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE:                                                                         
+### REGISTER NUMBER : 212222040047
 ### AIM: 
 Write a Prolog program to build a medical Diagnosis Expert System.
 ###  Algorithm:
@@ -15,18 +15,39 @@ Write a Prolog program to build a medical Diagnosis Expert System.
 
 ### Program:
 
-
-
-
-
-
-
-
-
-
-
+hypothesis(Patient,german_measles) :-<br>
+	symptom(Patient,fever),<br>
+	symptom(Patient,headache),<br>
+	symptom(Patient,runny_nose),<br>
+	symptom(Patient,rash).<br>
+hypothesis(Patient,flu) :-<br>
+        symptom(Patient,fever),<br>
+       symptom(Patient,headache),<br>
+	symptom(Patient,body_ache),<br>
+	symptom(Patient,conjunctivitis),<br>
+	symptom(Patient,chills),<br>
+	symptom(Patient,sore_throat),<br>
+	symptom(Patient,runny_nose),<br>
+	symptom(Patient,cough).<br>
+hypothesis(Patient,common_cold) :-<br>
+	symptom(Patient,headache),<br>
+	symptom(Patient,sneezing),<br>
+	symptom(Patient,sore_throat).<br>
+hypothesis(Patient,chicken_pox) :-<br>
+	symptom(Patient,fever),<br>
+	symptom(Patient,chills),<br>
+	symptom(Patient,body_ache),<br>
+	symptom(Patient,rash).<br>
+hypothesis(Patient,measles) :-<br>
+	symptom(Patient,cough),<br>
+	symptom(Patient,sneezing),<br>
+	symptom(Patient,runny_nose).<br>
+symptom(raju,headache).<br>
+symptom(raju,sneezing).<br>
+symptom(raju,sore_throat).<br>
 ### Output:
 
+![316235602-51224685-6269-4428-b8f8-cf4dcb8446bd](https://github.com/user-attachments/assets/a7add01d-5dc9-411b-b2f8-f4e548e5dd4b)
 
 
 ### Result:
